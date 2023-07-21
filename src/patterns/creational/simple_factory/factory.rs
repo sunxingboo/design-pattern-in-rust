@@ -23,7 +23,7 @@ pub fn new(flag: &str) -> Box<dyn Animal> {
 
 #[cfg(test)]
 mod tests {
-    use crate::patterns::utils::types::type_of;
+    use crate::utils::types::type_of;
     use super::*;
 
     #[test]
