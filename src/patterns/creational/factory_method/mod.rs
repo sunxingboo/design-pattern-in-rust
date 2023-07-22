@@ -1,6 +1,5 @@
 pub(crate) mod factory;
 mod product;
-q
 
 #[cfg(test)]
 mod tests {
