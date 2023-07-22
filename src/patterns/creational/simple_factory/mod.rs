@@ -1,4 +1,2 @@
 mod factory;
-
-mod cat;
-mod dog;
+mod product;
