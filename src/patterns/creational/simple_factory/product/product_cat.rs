@@ -7,8 +7,8 @@ pub struct Cat {
 
 // 实现构造方法
 impl Cat {
-    pub fn new() -> Self {
-        Cat {name: "mimi".to_string()}
+    pub fn new(name: String) -> Self {
+        Cat {name}
     }
 }
 

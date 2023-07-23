@@ -1,6 +1,6 @@
 use super::product::base::Animal;
-use super::product::cat::Cat;
-use super::product::dog::Dog;
+use super::product::product_cat::Cat;
+use super::product::product_dog::Dog;
 
 /// 工厂生产方法，根据flag产出不同对象
 /// 
@@ -9,10 +9,10 @@ use super::product::dog::Dog;
 /// ```
 /// let a = factory::new("cat")
 /// ```
-pub fn new(flag: &str) -> Box<dyn Animal> {
+pub fn new(flag: &str, name: String) -> Box<dyn Animal> {
     match flag {
-        "cat" => Box::new(Cat::new()),
-        "dog" => Box::new(Dog::new()),
+        "cat" => Box::new(Cat::new(name)),
+        "dog" => Box::new(Dog::new(name)),
         _ => panic!("flag is invalid"),
     }
 }
@@ -23,8 +23,8 @@ mod tests {
 
     #[test]
     fn base() {
-        let cat = new("cat");
-        let dog = new("dog");
+        let cat = new("cat", "mimi".to_string());
+        let dog = new("dog", "wangwang".to_string());
 
         println!("cat: {}", cat.say());
         println!("dog: {}", dog.say());

@@ -7,8 +7,8 @@ pub struct Dog {
 
 // 实现构造方法
 impl Dog {
-    pub fn new() -> Self {
-        Dog{name: "wangwang".to_string()}
+    pub fn new(name: String) -> Self {
+        Dog{name}
     }
 }
 

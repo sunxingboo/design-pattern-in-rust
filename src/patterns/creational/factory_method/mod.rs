@@ -9,8 +9,8 @@ mod tests {
 
     #[test]
     fn base() {
-        let cat = CatFactory::new();
-        let dog = DogFactory::new();
+        let cat = CatFactory::new("mimi".to_string());
+        let dog = DogFactory::new("wangwang".to_string());
 
         println!("cat: {}", cat.say());
         println!("dog: {}", dog.say());
