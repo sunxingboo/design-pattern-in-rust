@@ -1,4 +1,4 @@
-use crate::patterns::creational::abstract_factory::product::base::{BritishShorthairCat, PastoralCat};
+use crate::patterns::creational::factory::abstract_factory::product::base::{BritishShorthairCat, PastoralCat};
 
 // 抽象工厂
 pub trait Factory {

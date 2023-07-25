@@ -4,7 +4,7 @@ mod product;
 
 #[cfg(test)]
 mod tests {
-    use crate::patterns::creational::abstract_factory::factory::base::Factory;
+    use crate::patterns::creational::factory::abstract_factory::factory::base::Factory;
     use super::factory::{factory_blue_white_and_calico_cat::BlueWhiteAndCalicoCatFactory, factory_felinae_and_giner_cat::FelinaeAndGinerCat};
 
     #[test]

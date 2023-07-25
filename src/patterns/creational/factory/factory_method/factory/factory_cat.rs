@@ -1,4 +1,4 @@
-use crate::patterns::creational::factory_method::product::{base::Animal, product_cat::Cat};
+use crate::patterns::creational::factory::factory_method::product::{base::Animal, product_cat::Cat};
 use super::base::Factory;
 
 // Cat工厂

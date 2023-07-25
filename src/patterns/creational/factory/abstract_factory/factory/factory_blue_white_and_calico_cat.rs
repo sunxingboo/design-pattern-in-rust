@@ -1,7 +1,7 @@
 use super::base::Factory;
-use crate::patterns::creational::abstract_factory::product::base::{BritishShorthairCat, PastoralCat};
-use crate::patterns::creational::abstract_factory::product::product_british_shor_hair_cat::BlueWhiteCat;
-use crate::patterns::creational::abstract_factory::product::product_pastoral_cat::CalicoCat;
+use crate::patterns::creational::factory::abstract_factory::product::base::{BritishShorthairCat, PastoralCat};
+use crate::patterns::creational::factory::abstract_factory::product::product_british_shor_hair_cat::BlueWhiteCat;
+use crate::patterns::creational::factory::abstract_factory::product::product_pastoral_cat::CalicoCat;
 
 // 英短猫咪工厂
 #[derive(Default)]
