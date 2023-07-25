@@ -4,28 +4,30 @@ use super::base::Builder;
 
 // 金渐层猫咪生成器
 pub struct FelinaeCatBuilder {
-    pub product: Box<FelinaeCat>,
+    product: FelinaeCat,
 }
 
 impl FelinaeCatBuilder {
     pub fn new() -> Self {
         FelinaeCatBuilder{
-            product: Box::new(FelinaeCat::default()),
+            product: FelinaeCat::default(),
         }
     }
 
     pub fn get_result(&self) -> &FelinaeCat {
-        self.product.as_ref()
+        &self.product
     }
 }
 
 impl Builder for FelinaeCatBuilder {
+    type AssociateType = FelinaeCatBuilder;
+
     fn set_appearance(&mut self) {
-        self.product.as_mut().set_color("golden".to_string());
+        self.product.set_color("golden".to_string());
     }
 
     fn set_attribute(&mut self) {
-        let p = self.product.as_mut();
+        let p = &mut self.product;
 
         p.set_name("mimi".to_string());
         p.set_age(99);

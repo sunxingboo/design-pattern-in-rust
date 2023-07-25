@@ -7,10 +7,6 @@ pub struct FelinaeCat {
 }
 
 impl FelinaeCat {
-    pub fn new() -> Self {
-        FelinaeCat::default()
-    }
-
     // set name
     pub fn set_name(&mut self, name: String) -> &mut Self {
         self.name = format!("F-{}", name);

@@ -11,10 +11,16 @@ mod tests {
 
     #[test]
     fn base() {
-        let mut d = Director::new(Box::new(b));
+        let bwcb = BlueWhiteCatBuilder::new();
+        let mut d = Director::new(bwcb);
 
-        d.make();
-        println!("cat1: {}", d..get_result().say())
+        d.build();
+        println!("cat1: {}", d.get_builder().get_result().say());
+
+        let fcb = FelinaeCatBuilder::new();
+        let mut d = Director::new(fcb);
         
+        d.build();
+        println!("cat2: {}", d.get_builder().get_result().say());
     }
 }

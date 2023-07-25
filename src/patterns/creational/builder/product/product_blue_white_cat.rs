@@ -7,10 +7,6 @@ pub struct BlueWhiteCat {
 }
 
 impl BlueWhiteCat {
-    pub fn new() -> Self {
-        BlueWhiteCat::default()
-    }
-
     // name
     pub fn set_name(&mut self, name: String) -> &mut Self {
         self.name = format!("B-{}", name);

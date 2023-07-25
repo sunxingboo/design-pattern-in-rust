@@ -3,28 +3,30 @@ use super::base::Builder;
 
 // 蓝白猫咪生成器
 pub struct BlueWhiteCatBuilder {
-    pub product: Box<BlueWhiteCat>,
+    product: BlueWhiteCat,
 }
 
 impl BlueWhiteCatBuilder {
     pub fn new() -> Self {
         BlueWhiteCatBuilder{
-            product: Box::new(BlueWhiteCat::default()),
+            product: BlueWhiteCat::default(),
         }
     }
 
     pub fn get_result(&self) -> &BlueWhiteCat {
-        self.product.as_ref()
+        &self.product
     }
 }
 
 impl Builder for BlueWhiteCatBuilder {
+    type AssociateType = BlueWhiteCatBuilder;
+
     fn set_appearance(&mut self) {
-        self.product.as_mut().set_color("blue white".to_string());
+        self.product.set_color("blue white".to_string());
     }
 
     fn set_attribute(&mut self) {
-        let p = self.product.as_mut();
+        let p = &mut self.product;
         
         p.set_name("mimi".to_string());
         p.set_age(100);
