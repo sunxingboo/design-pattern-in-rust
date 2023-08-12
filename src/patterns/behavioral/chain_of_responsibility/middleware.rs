@@ -1,7 +1,7 @@
 // Middleware 中间件接口
 pub trait Middleware {
-    fn set_next(&self, m: Box<dyn Middleware>);
-    fn handle(&self, r: Request) -> Result<(), &'static str>;
+    fn set_next(&mut self, m: Box<dyn Middleware>);
+    fn handle(&self, r: Request) -> Result<bool, &'static str>;
 }
 
 // Request 请求数据

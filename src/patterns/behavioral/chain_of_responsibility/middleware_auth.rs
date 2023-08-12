@@ -19,15 +19,20 @@ impl Middleware for MiddlewareAuth {
         self.next = Some(m)
     }
 
-    fn handle(&self, r: Request) -> Result<(), &'static str> {
-        format!("request success: {}", r.get_name());
+    fn handle(&self, r: Request) -> Result<bool, &'static str> {
+        if r.get_name() == "auth failure test" {
+            println!("auth failed: {}", r.get_name());
+            return Err("auth failed.")
+        }
+
+        println!("auth success: {}", r.get_name());
 
         match &self.next {
             Some(next) => {
                 next.handle(r)
             },
             None => {
-
+                Ok(true)
             }
         }
     }

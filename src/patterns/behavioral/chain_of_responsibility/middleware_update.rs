@@ -19,15 +19,20 @@ impl Middleware for MiddlewareUpdate {
         self.next = Some(m)
     }
 
-    fn handle(&self, r: Request) -> Result<(), &'static str> {
-        format!("update success: {}", r.get_name());
+    fn handle(&self, r: Request) -> Result<bool, &'static str> {
+        if r.get_name() == "update failure test" {
+            println!("update failed: {}", r.get_name());
+            return Err("update failed.")
+        }
+
+        println!("update success: {}", r.get_name());
 
         match &self.next {
             Some(next) => {
                 next.handle(r)
             },
             None => {
-
+                Ok(true)
             }
         }
     }

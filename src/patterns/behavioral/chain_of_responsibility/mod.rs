@@ -13,9 +13,16 @@ mod tests {
     #[test]
     fn base() {
         let r = Request::new("test user".to_string());
-        let h1 = MiddlewareAuth::new();
+        let mut h1 = MiddlewareAuth::new();
         let h2 = MiddlewareUpdate::new();
 
-        h1.set_next(Box::new(h2))
+        h1.set_next(Box::new(h2));
+        assert_eq!(Result::Ok(true), h1.handle(r));
+
+        let r = Request::new("auth failure test".to_string());
+        assert_eq!(Result::Err("auth failed."), h1.handle(r));
+
+        let r = Request::new("update failure test".to_string());
+        assert_eq!(Result::Err("update failed."), h1.handle(r));
     }
 }
