@@ -3,7 +3,7 @@ use std::rc::Rc;
 use super::mediator::Mediator;
 
 /// 系统中需要中介者来协调的成员；
-pub(crate) trait Member {
+pub(crate) trait Colleague {
 	fn id(&self) -> i32;
 	fn apply_for_landing(&self);
 	fn receive(&self, msg: &str);
@@ -22,7 +22,7 @@ impl AirBus320 {
 	}
 }
 
-impl Member for AirBus320 {
+impl Colleague for AirBus320 {
 	fn id(&self) -> i32 {
 		320
 	}
@@ -49,7 +49,7 @@ impl Boeing737 {
 	}
 }
 
-impl Member for Boeing737 {
+impl Colleague for Boeing737 {
 	fn id(&self) -> i32 {
 		737
 	}

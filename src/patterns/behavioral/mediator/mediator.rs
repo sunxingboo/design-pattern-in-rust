@@ -1,13 +1,13 @@
-use super::colleague::Member;
+use super::colleague::Colleague;
 
 /// 中介者。协调多个对象的交互，使对象间不再显示的调用，以此解耦。
 pub(crate) trait Mediator {
-	fn notify(&self, _: &dyn Member);
+	fn notify(&self, _: &dyn Colleague);
 }
 
 /// 塔台。
 pub(crate) struct ControlTower {
-	pub(crate) air_planes: Vec<Box<dyn Member>>,
+	pub(crate) air_planes: Vec<Box<dyn Colleague>>,
 }
 
 impl ControlTower {
@@ -17,7 +17,7 @@ impl ControlTower {
 		}
 	}
 
-	pub fn add_member(&mut self, air_plane: Box<dyn Member>) -> &mut Self {
+	pub fn add_member(&mut self, air_plane: Box<dyn Colleague>) -> &mut Self {
 		self.air_planes.push(air_plane);
 		self
 	}
@@ -28,8 +28,8 @@ impl Mediator for ControlTower {
 	/// 但是这个例子并没有太确切的说明中介者模式。
 	///
 	/// 总之，在中介者模式中，请求由「某一个具体的成员」发起，经过中介者转发（可能由一些必要的业务逻辑处理），
-	/// 最终由某一个或某几个其他成员对象接收。
-	fn notify(&self, sender: &dyn Member) {
+	/// 最终由某一个或某几个其他成员对象接收，具体的转发判断逻辑由中介者掌控。
+	fn notify(&self, sender: &dyn Colleague) {
 		let mut gate = 0;
 		for i in 0..self.air_planes.len() {
 			if self.air_planes[i].id() == sender.id() {
