@@ -1,6 +1,6 @@
 use super::subject::Subject;
 
-/// 通用抽象访问器
+/// 代理访问器
 pub(crate) struct ProxyAccessor {
     real: Box<dyn Subject>
 }
