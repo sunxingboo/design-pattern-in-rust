@@ -4,9 +4,8 @@ mod outlet;
 
 #[cfg(test)]
 mod tests {
-    use crate::patterns::structural::adapter::adapter::BritishStandardPlugAdapter;
-    use crate::patterns::structural::adapter::plug::Plug;
-    use super::plug::BritishStandardPlug;
+    use super::adapter::BritishStandardPlugAdapter;
+    use super::plug::{Plug, BritishStandardPlug};
 
     #[test]
     fn base() {
