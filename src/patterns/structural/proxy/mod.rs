@@ -4,7 +4,7 @@ mod subject;
 #[cfg(test)]
 mod tests {
     use super::proxy::ProxyAccessor;
-    use super::subject::{GoogleAccessor, Subject};
+    use super::subject::{GoogleAccessor, Accessor};
 
     #[test]
     fn base() {
