@@ -4,9 +4,9 @@ mod composite;
 
 #[cfg(test)]
 mod tests {
-    use crate::patterns::structural::composite::component::Component;
-    use crate::patterns::structural::composite::composite::Directory;
-    use crate::patterns::structural::composite::leaf::File;
+    use super::component::Component;
+    use super::composite::Directory;
+    use super::leaf::File;
 
     #[test]
     fn base() {

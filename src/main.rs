@@ -1,5 +1,5 @@
 mod patterns;
 
 fn main() {
-    println!("Simple code of design pattern.")
+    println!("Simple code of design pattern.");
 }
