@@ -16,6 +16,24 @@ classDiagram
       class Flyweight {
           <<interface>>
           
-          
+          + operate()
       }
+      
+      class FlyweightFactory {
+          - HashMap pool
+          
+          + get_flyweight(key) Flyweight
+      }
+      
+      class ConcreteFlyweightA {
+          + operate()
+      }
+      
+      class ConcreteFlyweightB {
+          + operate()
+      }
+      
+      Flyweight <|.. ConcreteFlyweightA
+      Flyweight <|.. ConcreteFlyweightB
+      FlyweightFactory o-- Flyweight
 ```
