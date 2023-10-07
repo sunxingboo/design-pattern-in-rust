@@ -1,7 +1,7 @@
 use super::subscriber::Subscriber;
 
 /// 消息队列。观察者角色，当有新消息到达时，将其推送给每一个订阅者。
-pub(crate) struct MessageQueue {
+pub struct MessageQueue {
     subscribers: Vec<Box<dyn Subscriber>>,
 }
 

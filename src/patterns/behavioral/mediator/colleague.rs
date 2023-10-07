@@ -3,14 +3,14 @@ use std::rc::Rc;
 use super::mediator::Mediator;
 
 /// 系统中需要中介者来协调的成员；
-pub(crate) trait Colleague {
+pub trait Colleague {
 	fn id(&self) -> i32;
 	fn apply_for_landing(&self);
 	fn receive(&self, msg: &str);
 }
 
 /// 空客320
-pub(crate) struct AirBus320 {
+pub struct AirBus320 {
 	mediator: Rc<RefCell<dyn Mediator>>,
 }
 
@@ -37,7 +37,7 @@ impl Colleague for AirBus320 {
 }
 
 /// 波音737
-pub(crate) struct Boeing737 {
+pub struct Boeing737 {
 	mediator: Rc<RefCell<dyn Mediator>>,
 }
 

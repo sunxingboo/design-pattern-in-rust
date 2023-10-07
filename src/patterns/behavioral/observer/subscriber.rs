@@ -1,10 +1,10 @@
 
-pub(crate) trait Subscriber {
+pub trait Subscriber {
     fn receive(&self, msg: i32);
 }
 
 /// ConsumerA
-pub(crate) struct ConsumerA;
+pub struct ConsumerA;
 
 impl ConsumerA {
     pub fn new() -> Self {
@@ -19,7 +19,7 @@ impl Subscriber for ConsumerA {
 }
 
 /// ConsumerB
-pub(crate) struct ConsumerB;
+pub struct ConsumerB;
 
 impl ConsumerB {
     pub fn new() -> Self {

@@ -1,7 +1,7 @@
 use super::component::Component;
 
 /// 叶子节点（Leaf）。是整个系统结构真正最小粒度的组成元件。
-pub(crate) struct File {
+pub struct File {
     name: String,
     content: String,
 }
@@ -24,7 +24,7 @@ impl Component for File {
 }
 
 impl File {
-    pub(crate) fn new(name: String) -> Self {
+    pub fn new(name: String) -> Self {
         File {
             name,
             content: String::new(),

@@ -5,7 +5,7 @@ use super::pharmacy::Pharmacy;
 /// 外观接口。
 /// 这个一个复杂子系统的对外接口，以此隐藏系统内部的复杂性，使其简单易用。
 /// 另外也减轻了其他模块对此系统的依赖，在进行重构或替换时，只需实现此接口即可。
-pub(crate) trait Facade {
+pub trait Facade {
 	fn treat(&self);
 }
 
@@ -14,14 +14,14 @@ pub(crate) trait Facade {
 /// 这就要求患者需要知道医院的整个流程，自己严格安装流程执行，但这样患者在使用「医院」这个子系统时就有比较
 /// 大的心智负担，而通过医院的外接口，患者不需要知道系统的内部流程，只需要直接等待治疗，其他的事项均交给系统
 /// 自动完成。
-pub(crate) struct Hospital {
+pub struct Hospital {
 	cashier: Cashier,
 	doctor: Doctor,
 	pharmacy: Pharmacy,
 }
 
 impl Hospital {
-	pub(crate) fn new() -> Self {
+	pub fn new() -> Self {
 		Hospital {
 			cashier: Cashier::new(),
 			doctor: Doctor::new(),

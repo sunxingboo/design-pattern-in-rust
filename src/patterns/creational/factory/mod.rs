@@ -1,3 +1,3 @@
-pub(crate) mod simple_factory;
-pub(crate) mod factory_method;
-pub(crate) mod abstract_factory;
+pub mod simple_factory;
+pub mod factory_method;
+pub mod abstract_factory;

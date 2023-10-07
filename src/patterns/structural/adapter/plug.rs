@@ -1,5 +1,5 @@
 /// 插头。
-pub(crate) trait Plug {
+pub trait Plug {
     fn pin_shape(&self);
     fn voltage(&self);
 }
@@ -18,7 +18,7 @@ impl Plug for BritishStandardPlug {
 }
 
 impl BritishStandardPlug {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         BritishStandardPlug
     }
 }

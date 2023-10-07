@@ -1,12 +1,12 @@
 /// 药房。根据医生处方单配置药物。
-pub(crate) struct Pharmacy;
+pub struct Pharmacy;
 
 impl Pharmacy {
-	pub(crate) fn new() -> Self {
+	pub fn new() -> Self {
 		Pharmacy
 	}
 
-	pub(crate) fn prescribe_medication(&self) {
+	pub fn prescribe_medication(&self) {
 		println!("已根据医生处方单配置药物。");
 	}
 }

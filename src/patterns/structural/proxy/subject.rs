@@ -1,9 +1,9 @@
 /// 主题特征。
-pub(crate) trait Accessor {
+pub trait Accessor {
     fn execute(&self);
 }
 /// 谷歌访问器。实际执行请求。
-pub(crate) struct GoogleAccessor;
+pub struct GoogleAccessor;
 
 impl Accessor for GoogleAccessor {
     fn execute(&self) {
@@ -12,7 +12,7 @@ impl Accessor for GoogleAccessor {
 }
 
 impl GoogleAccessor {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         GoogleAccessor
     }
 }

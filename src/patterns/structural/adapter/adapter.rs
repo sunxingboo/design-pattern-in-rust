@@ -4,12 +4,12 @@ use super::plug::Plug;
 /// 如通过公牛转换头，将港版插头与大陆插座适配。这里任务转换头是港版插头的适配器（也就是适配器是为了适配使用者）。
 
 /// 英标插头适配器。
-pub(crate) struct BritishStandardPlugAdapter {
+pub struct BritishStandardPlugAdapter {
     plug: Box<dyn Plug>
 }
 
 impl BritishStandardPlugAdapter {
-    pub(crate) fn new(plug: Box<dyn Plug>) -> Self {
+    pub fn new(plug: Box<dyn Plug>) -> Self {
         BritishStandardPlugAdapter {
             plug,
         }

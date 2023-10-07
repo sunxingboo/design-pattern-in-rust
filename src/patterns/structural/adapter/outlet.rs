@@ -1,5 +1,5 @@
 /// 插座。
-pub(crate) trait Outlet {
+pub trait Outlet {
     fn socket_shape(&self);
     fn voltage(&self);
 }
@@ -18,7 +18,7 @@ impl Outlet for NationalStandardOutlet {
 }
 
 impl NationalStandardOutlet {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         NationalStandardOutlet
     }
 }

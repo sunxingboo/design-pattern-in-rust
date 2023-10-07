@@ -1,7 +1,7 @@
 use super::command::Command;
 
 /// 机箱；命令的调用者，不同的按钮包装了不同的命令；
-pub(crate) struct Chassis {
+pub struct Chassis {
     button1: Box<dyn Command>,
     button2: Box<dyn Command>,
     button3: Box<dyn Command>,

@@ -2,7 +2,7 @@ use crate::patterns::creational::factory::factory_method::product::{base::Animal
 use super::base::Factory;
 
 // Dog工厂
-pub(crate) struct DogFactory {}
+pub struct DogFactory {}
 
 impl Factory for DogFactory {
     fn new(name: String) -> Box<dyn Animal> {

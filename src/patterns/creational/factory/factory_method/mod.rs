@@ -1,4 +1,4 @@
-pub(crate) mod factory;
+pub mod factory;
 mod product;
 
 #[cfg(test)]

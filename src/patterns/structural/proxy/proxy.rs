@@ -1,7 +1,7 @@
 use super::subject::Accessor;
 
 /// 代理访问器
-pub(crate) struct ProxyAccessor {
+pub struct ProxyAccessor {
     real: Box<dyn Accessor>
 }
 
@@ -15,7 +15,7 @@ impl Accessor for ProxyAccessor {
 
 impl ProxyAccessor {
     // 可以结合工厂模式生成持有的real对象。这里简单表述不举例实现了。
-    pub(crate) fn new(real: Box<dyn Accessor>) -> Self {
+    pub fn new(real: Box<dyn Accessor>) -> Self {
         ProxyAccessor {
             real,
         }

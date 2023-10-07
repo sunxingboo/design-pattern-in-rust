@@ -1,7 +1,7 @@
 use super::component::Component;
 
 /// 组合节点（Composite）。
-pub(crate) struct Directory {
+pub struct Directory {
     name: String,
     list: Vec<Box<dyn Component>>,
 }
@@ -27,14 +27,14 @@ impl Component for Directory {
 }
 
 impl Directory {
-    pub(crate) fn new(name: String) -> Self {
+    pub fn new(name: String) -> Self {
         Directory {
             name,
             list: vec![],
         }
     }
 
-    pub(crate) fn add(&mut self, c: Box<dyn Component>) {
+    pub fn add(&mut self, c: Box<dyn Component>) {
         self.list.push(c);
     }
 }

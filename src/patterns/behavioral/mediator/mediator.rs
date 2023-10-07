@@ -1,13 +1,13 @@
 use super::colleague::Colleague;
 
 /// 中介者。协调多个对象的交互，使对象间不再显示的调用，以此解耦。
-pub(crate) trait Mediator {
+pub trait Mediator {
 	fn notify(&self, _: &dyn Colleague);
 }
 
 /// 塔台。
-pub(crate) struct ControlTower {
-	pub(crate) air_planes: Vec<Box<dyn Colleague>>,
+pub struct ControlTower {
+	pub air_planes: Vec<Box<dyn Colleague>>,
 }
 
 impl ControlTower {

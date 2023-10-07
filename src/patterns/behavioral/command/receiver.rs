@@ -1,5 +1,5 @@
 /// 主板；命令的接收者，真正执行命令的角色；
-pub(crate) struct MotherBoard;
+pub struct MotherBoard;
 
 impl MotherBoard {
     pub fn new() -> Self {

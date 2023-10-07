@@ -1,3 +1,3 @@
-pub(crate) mod base;
-pub(crate) mod factory_cat;
-pub(crate) mod factory_dog;
+pub mod base;
+pub mod factory_cat;
+pub mod factory_dog;

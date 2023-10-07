@@ -1,2 +1,2 @@
-pub(crate) mod cat;
-pub(crate) mod dog;
+pub mod cat;
+pub mod dog;
