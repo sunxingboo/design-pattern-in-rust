@@ -1,5 +1,4 @@
-## 设计模式：rust代码示例
-
+## 设计模式
 
 ### 创建型
 - [工厂模式](./src/patterns/creational/factory/README.md)
