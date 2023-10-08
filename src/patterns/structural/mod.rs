@@ -3,3 +3,4 @@ mod adapter;
 mod proxy;
 mod composite;
 mod flyweight;
+mod bridge;

@@ -12,6 +12,7 @@
 - 代理模式
 - 组合模式
 - [享元模式](./src/patterns/structural/flyweight/README.md)
+- [桥接模式](./src/patterns/structural/bridge/README.md)
 
 ### 行为型
 - 责任链模式

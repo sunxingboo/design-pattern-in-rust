@@ -14,6 +14,7 @@ impl FlyweightFactory {
         }
     }
 
+    // TODO：此处的实现方式使FlyweightFactory与具体的Flyweight耦合，是否与类图不符？
     pub fn get_flyweight(&mut self, key: &str) -> Rc<dyn Flyweight> {
         if !self.pool.contains_key(key) {
             let flyweight =  match key {
