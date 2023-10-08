@@ -10,8 +10,12 @@ classDiagram
         
     }
     
-    class RefinedAbstract {
+    class RefinedAbstractA {
         
+    }
+
+    class RefinedAbstractB {
+
     }
     
     class Implementor {
@@ -26,9 +30,10 @@ classDiagram
 
     }
     
-    Abstract <|.. RefinedAbstract
+    Abstract <|-- RefinedAbstractA
+    Abstract <|-- RefinedAbstractB
     Implementor <|.. ConcreteImplementorA
     Implementor <|.. ConcreteImplementorB
-    RefinedAbstract o--> Implementor
+    Abstract o--> Implementor
     
 ```
