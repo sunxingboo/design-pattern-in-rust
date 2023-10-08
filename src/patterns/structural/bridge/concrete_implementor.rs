@@ -1,29 +1,29 @@
-use super::implementor::DrawAPI;
+use super::implementor::Color;
 
-pub struct RedCircle;
+pub struct Red;
 
-impl DrawAPI for RedCircle {
-    fn draw_circle(&self, x: i32, y: i32, radius: i32) {
-        println!("draw circle[ color: red, x: {}, y: {}, radius: {} ]", x, y, radius);
+impl Color for Red {
+    fn dyeing(&self) {
+        println!("dyeing to red.");
     }
 }
 
-impl RedCircle {
+impl Red {
     pub fn new() -> Self {
-        RedCircle
+        Red
     }
 }
 
-pub struct GreenCircle;
+pub struct Green;
 
-impl DrawAPI for GreenCircle {
-    fn draw_circle(&self, x: i32, y: i32, radius: i32) {
-        println!("draw circle[ color: green, x: {}, y: {}, radius: {} ]", x, y, radius);
+impl Color for Green {
+    fn dyeing(&self) {
+        println!("dyeing to green.");
     }
 }
 
-impl GreenCircle {
+impl Green {
     pub fn new() -> Self {
-        GreenCircle
+        Green
     }
 }
