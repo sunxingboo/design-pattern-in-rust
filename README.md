@@ -13,6 +13,7 @@
 - 组合模式
 - [享元模式](./src/patterns/structural/flyweight/README.md)
 - [桥接模式](./src/patterns/structural/bridge/README.md)
+- [装饰器模式](./src/patterns/structural/decorator/README.md)
 
 ### 行为型
 - 责任链模式
