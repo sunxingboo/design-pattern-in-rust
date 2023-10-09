@@ -1,37 +1,41 @@
-use super::component::Component;
+use super::component::Notifier;
 
-pub struct  DecoratorA<T: Component> {
-    component: T,
+/// SMS通知装饰器
+pub struct SMSDecorator<T: Notifier> {
+    notifier: T,
 }
 
-impl<T: Component> Component for DecoratorA<T> {
-    fn operate(&self) -> String {
-        format!("DecoratorA[ {} ]", self.component.operate())
+impl<T: Notifier> Notifier for SMSDecorator<T> {
+    fn notify(&self, msg: &str) {
+        self.notifier.notify(msg);
+        println!("send SMS: {}", msg);
     }
 }
 
-impl<T: Component> DecoratorA<T> {
-    pub fn new(component: T) -> DecoratorA<T> {
-        DecoratorA{
-            component
+impl<T: Notifier> SMSDecorator<T> {
+    pub fn new(notifier: T) -> SMSDecorator<T> {
+        SMSDecorator {
+            notifier
         }
     }
 }
 
-pub struct  DecoratorB<T: Component> {
-    component: T,
+/// QQ通知装饰器
+pub struct QQDecorator<T: Notifier> {
+    notifier: T,
 }
 
-impl<T: Component> Component for DecoratorB<T> {
-    fn operate(&self) -> String {
-        format!("DecoratorB[ {} ]", self.component.operate())
+impl<T: Notifier> Notifier for QQDecorator<T> {
+    fn notify(&self, msg: &str) {
+        self.notifier.notify(msg);
+        println!("send QQ: {}", msg);
     }
 }
 
-impl<T: Component> DecoratorB<T> {
-    pub fn new(component: T) -> DecoratorB<T> {
-        DecoratorB{
-            component
+impl<T: Notifier> QQDecorator<T> {
+    pub fn new(notifier: T) -> QQDecorator<T> {
+        QQDecorator {
+            notifier
         }
     }
 }

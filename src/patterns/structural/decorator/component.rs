@@ -1,3 +1,3 @@
-pub trait Component {
-    fn operate(&self) -> String;
+pub trait Notifier {
+    fn notify(&self, _: &str);
 }
