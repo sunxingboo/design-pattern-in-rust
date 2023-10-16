@@ -21,3 +21,4 @@
 - 中介者模式
 - 观察者模式
 - [迭代器模式](./src/patterns/behavioral/iterator/README.md)
+- [模版方法模式](./src/patterns/behavioral/template/README.md)
