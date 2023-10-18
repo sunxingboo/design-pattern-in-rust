@@ -5,3 +5,4 @@ mod observer;
 mod iterator;
 mod template;
 mod memento;
+mod state;
