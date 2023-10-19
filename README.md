@@ -24,3 +24,4 @@
 - [模版方法模式](./src/patterns/behavioral/template/README.md)
 - [备忘录模式](./src/patterns/behavioral/memento/README.md)
 - [状态模式](./src/patterns/behavioral/state/README.md)
+- [策略模式](./src/patterns/behavioral/strategy/README.md)

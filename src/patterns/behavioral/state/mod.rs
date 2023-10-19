@@ -4,7 +4,7 @@ mod state;
 
 #[cfg(test)]
 mod tests {
-	use crate::patterns::behavioral::state::context::Document;
+	use super::context::Document;
 
 	#[test]
 	fn base() {
