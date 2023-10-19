@@ -1,47 +1,32 @@
-use std::cell::RefCell;
-use std::rc::Rc;
 use super::state::State;
 use super::concrete_state::Draft;
 
 pub struct Document {
-	author: String,
-	state: Option<Rc<RefCell<dyn State>>>,
+    author: String,
+    state: Box<dyn State>,
 }
 
 impl Document {
-	/// 新建文档默认为草稿状态
-	pub fn new(author: String) -> Self {
-		let mut ctx = Document { author, state: None };
+    /// 新建文档默认为草稿状态
+    pub fn new(author: String) -> Self {
+        Document {
+            author,
+            state: Box::new(Draft::new()),
+        }
+    }
 
-		let state = Draft::new(
-			Some(
-				Rc::new(
-					RefCell::new(&ctx)
-				)
-			)
-		);
+    pub fn set_state(&mut self, state: Box<dyn State>) {
+        self.state = state;
+    }
 
-		ctx.set_state(Some(
-			Rc::new(
-				RefCell::new(state)
-			)
-		));
+    pub fn author_is_admin(&self) -> bool {
+        match self.author.as_str() {
+            "admin" => true,
+            _ => false
+        }
+    }
 
-		ctx
-	}
-
-	pub fn set_state(&mut self, state: Option<Rc<RefCell<dyn State>>>) {
-		self.state = state;
-	}
-
-	pub fn author_is_admin(&self) -> bool {
-		match self.author.as_str() {
-			"admin" => true,
-			_ => false
-		}
-	}
-
-	pub fn publish(&self) {
-		self.state.as_ref().unwrap().borrow().publish();
-	}
+    pub fn publish(&mut self) -> Box<dyn State> {
+        self.state.handle(self)
+    }
 }

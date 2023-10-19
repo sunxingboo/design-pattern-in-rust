@@ -1,99 +1,60 @@
-use std::cell::RefCell;
-use std::rc::Rc;
 use super::state::State;
 use super::context::Document;
 
 /// 草稿状态
-pub struct Draft<'a> {
-	ctx: Option<Rc<RefCell<&'a Document>>>,
-}
+pub struct Draft;
 
-impl State for Draft<'_> {
-	fn publish(&self) {
-		let mut ctx = self.ctx.as_ref().unwrap().borrow_mut();
-
+impl State for Draft {
+	fn handle(&self, ctx: &Document) -> Box<dyn State> {
 		if ctx.author_is_admin() {
-			ctx.set_state(
-				Some(Rc::new(
-					RefCell::new(
-						Published::new(self.ctx.clone())
-					)
-				))
-			);
-
 			println!("author is admin, state changed: draft -> published.");
-			return;
+			return Box::new(Published::new());
 		}
 
-		ctx.set_state(
-			Some(Rc::new(
-				RefCell::new(
-					Moderation::new(self.ctx.clone())
-				)
-			))
-		);
-
 		println!("state changed: draft -> moderation.");
+		Box::new(Moderation::new())
 	}
 }
 
-impl Draft<'_> {
-	pub fn new(ctx: Option<Rc<RefCell<&Document>>>) -> Self {
-		Draft {
-			ctx
-		}
+impl Draft {
+	pub fn new() -> Self {
+		Draft
 	}
 }
 
 /// 审核状态
-pub struct Moderation<'a> {
-	ctx: Option<Rc<RefCell<&'a Document>>>
-}
+pub struct Moderation;
 
-impl State for Moderation<'_> {
-	fn publish(&self) {
-		let mut ctx = self.ctx.unwrap().borrow();
-
+impl State for Moderation {
+	fn handle(&self, ctx: &Document) -> Box<dyn State> {
 		if ctx.author_is_admin() {
-			ctx.set_state(
-				Some(Rc::new(
-					RefCell::new(
-						Published::new(self.ctx.clone())
-					)
-				))
-			);
-
 			println!("author is admin, state changed: draft -> published.");
-			return;
+
+			return Box::new(Published::new());
 		}
 
 		panic!("permission denied.");
 	}
 }
 
-impl Moderation<'_> {
-	pub fn new(ctx: Option<Rc<RefCell<&Document>>>) -> Self {
-		Moderation {
-			ctx
-		}
+impl Moderation {
+	pub fn new() -> Self {
+		Moderation
 	}
 }
 
 /// 已发布状态
-pub struct Published<'a> {
-	ctx: Option<Rc<RefCell<&'a Document>>>
-}
+pub struct Published;
 
-impl State for Published<'_> {
-	fn publish(&self) {
-		println!("already published.");
+impl State for Published {
+	fn handle(&self, _: &Document) -> Box<dyn State> {
+		println!("document is already published. do nothing.");
+		Box::new(Published::new())
 	}
 }
 
-impl Published<'_> {
-	pub fn new(ctx: Option<Rc<RefCell<&Document>>>) -> Self {
-		Published {
-			ctx
-		}
+impl Published {
+	pub fn new() -> Self {
+		Published
 	}
 }

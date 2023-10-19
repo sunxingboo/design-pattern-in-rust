@@ -8,7 +8,18 @@ mod tests {
 
 	#[test]
 	fn base() {
-		let d = Document::new("admin".to_string());
-		d.publish();
+		let mut doc = Document::new("admin".to_string());
+		let next_state = doc.publish();
+		doc.set_state(next_state);
+		doc.publish();
+	}
+
+	#[test]
+	#[should_panic]
+	fn test_exception() {
+		let mut doc = Document::new("aaa".to_string());
+		let next_state = doc.publish();
+		doc.set_state(next_state);
+		doc.publish();
 	}
 }

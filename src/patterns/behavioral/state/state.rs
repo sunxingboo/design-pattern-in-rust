@@ -1,3 +1,5 @@
+use super::context::Document;
+
 pub trait State {
-	fn publish(&self);
+	fn handle(&self, _: &Document) -> Box<dyn State>;
 }
