@@ -7,3 +7,4 @@ mod template;
 mod memento;
 mod state;
 mod strategy;
+mod visitor;
