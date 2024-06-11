@@ -11,6 +11,7 @@ impl<T: RouteStrategy> Navigator<T> {
         }
     }
 
+    #[allow(unused)]
     pub fn change_strategy(&mut self, strategy: T) {
         self.strategy = strategy;
     }

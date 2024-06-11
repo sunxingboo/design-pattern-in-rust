@@ -3,6 +3,7 @@ use super::concrete_collection::Tree;
 use super::iterator::Iterator;
 
 // 深度优先迭代器
+#[allow(unused)]
 pub struct DepthFirstIterator {
 	collection: Rc<Tree>,
 }
@@ -25,6 +26,7 @@ impl Iterator for DepthFirstIterator {
 }
 
 // 广度优先迭代器
+#[allow(unused)]
 pub struct BreadthFirstIterator {
 	collection: Rc<Tree>,
 }

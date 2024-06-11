@@ -9,10 +9,10 @@ mod tests {
 
     #[test]
     fn base() {
-        let mut ctx = Navigator::new(SubwayStrategy::new());
+        let ctx = Navigator::new(SubwayStrategy::new());
         ctx.execute();
 
-        let mut ctx = Navigator::new(RidingStrategy::new());
+        let ctx = Navigator::new(RidingStrategy::new());
         ctx.execute();
     }
 }

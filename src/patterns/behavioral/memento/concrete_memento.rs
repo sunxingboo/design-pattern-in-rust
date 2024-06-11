@@ -1,6 +1,4 @@
-use std::rc::Rc;
 use super::memento::Memento;
-use super::originator::Originator;
 
 /// 编辑器快照。
 pub struct Snapshot {

@@ -14,7 +14,7 @@ impl Component for File {
     // 展示文件名称与内容
     fn show(&self, deep: i32) {
         let mut prefix = String::new();
-        for i in 0..deep {
+        for _ in 0..deep {
             prefix.push('-');
         }
 

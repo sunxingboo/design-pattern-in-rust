@@ -1,4 +1,3 @@
-use std::rc::Rc;
 use super::memento::Memento;
 use super::originator::Originator;
 use super::concrete_memento::Snapshot;

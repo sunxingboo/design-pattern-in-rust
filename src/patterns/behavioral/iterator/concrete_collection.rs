@@ -3,6 +3,7 @@ use super::concrete_iterator::{DepthFirstIterator, BreadthFirstIterator};
 use super::collection::Collection;
 
 // 二叉树。本示例中只简单演示遍历，因此使用Option<Box<T>>来定义节点。
+#[allow(unused)]
 pub struct Tree {
 	val: i32,
 	// left: Option<Rc<RefCell<Tree>>>,
@@ -11,6 +12,7 @@ pub struct Tree {
 	right: Option<Box<Tree>>,
 }
 
+#[allow(unused)]
 impl Tree {
 	pub fn new(val: i32) -> Self {
 		Tree{
